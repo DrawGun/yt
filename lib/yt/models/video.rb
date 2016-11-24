@@ -614,7 +614,7 @@ module Yt
       # @see https://developers.google.com/youtube/analytics/v1/reports
       def reports_params
         {}.tap do |params|
-          if auth.owner_name
+          if auth && auth.owner_name
             params[:ids] = "contentOwner==#{auth.owner_name}"
           else
             params[:ids] = "channel==#{channel_id}"
